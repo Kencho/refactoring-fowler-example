@@ -49,11 +49,11 @@ public class Customer {
 		}
 		// add footer lines
 		result += printer.statementAmountTotal(totalAmount);
-		result += statementPointsTotal(frequentRenterPoints);
+		result += statementPointsTotal(printer, frequentRenterPoints);
 		return result;
 	}
 
-	private String statementPointsTotal(int totalFrequentRenterPoints) {
+	private String statementPointsTotal(StatementPrinterPlain printer, int totalFrequentRenterPoints) {
 		return "You earned " + String.valueOf(totalFrequentRenterPoints) + " frequent renter points";
 	}
 
