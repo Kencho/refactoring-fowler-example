@@ -44,7 +44,7 @@ public class Customer {
 			// add frequent renter points
 			frequentRenterPoints += each.getFrequentRenterPoints();
 			// show figures for this rental
-			result += statementLine(thisAmount, each);
+			result += statementLine(printer, each.getMovie().getTitle(), thisAmount);
 			totalAmount += thisAmount;
 		}
 		// add footer lines
@@ -53,8 +53,8 @@ public class Customer {
 		return result;
 	}
 
-	private String statementLine(double thisAmount, Rental each) {
-		return "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
+	private String statementLine(StatementPrinterPlain printer, String title, double amount) {
+		return "\t" + title + "\t" + String.valueOf(amount) + "\n";
 	}
 
 }
