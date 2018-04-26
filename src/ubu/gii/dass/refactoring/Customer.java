@@ -48,9 +48,13 @@ public class Customer {
 			totalAmount += thisAmount;
 		}
 		// add footer lines
-		result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
+		result += statementAmountTotal(totalAmount);
 		result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
 		return result;
+	}
+
+	private String statementAmountTotal(double totalAmount) {
+		return "Amount owed is " + String.valueOf(totalAmount) + "\n";
 	}
 
 }
