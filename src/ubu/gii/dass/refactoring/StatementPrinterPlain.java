@@ -10,4 +10,8 @@ public class StatementPrinterPlain {
 		return "\t" + title + "\t" + String.valueOf(amount) + "\n";
 	}
 
+	String statementAmountTotal(double totalAmount) {
+		return "Amount owed is " + String.valueOf(totalAmount) + "\n";
+	}
+
 }
