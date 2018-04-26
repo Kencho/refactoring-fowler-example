@@ -41,7 +41,7 @@ public class VideoClubTest extends TestCase {
 		c1.addRental(r2);
 		c1.addRental(r3);
 
-		String salida = c1.statement();
+		String salida = c1.statement(new StatementPrinterPlain());
 
 		String salidaEsperada = new String(
 				"Rental Record for Manuel\n" + "\tSky Captain\t15.0\n" + "\tAccion Mutante\t2.0\n"
