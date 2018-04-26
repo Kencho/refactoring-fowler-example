@@ -14,4 +14,8 @@ public class StatementPrinterPlain {
 		return "Amount owed is " + String.valueOf(totalAmount) + "\n";
 	}
 
+	String statementPointsTotal(int totalFrequentRenterPoints) {
+		return "You earned " + String.valueOf(totalFrequentRenterPoints) + " frequent renter points";
+	}
+
 }
