@@ -34,7 +34,7 @@ public class Customer {
 		double totalAmount = 0;
 		int frequentRenterPoints = 0;
 		Iterator<Rental> rentals = _rentals.iterator();
-		String result = statementHeader(printer, getName());
+		String result = printer.statementHeader(getName());
 		while (rentals.hasNext()) {
 			double thisAmount = 0;
 			Rental each = rentals.next();
@@ -51,10 +51,6 @@ public class Customer {
 		result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
 		result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
 		return result;
-	}
-
-	private String statementHeader(StatementPrinterPlain printer, String customerName) {
-		return "Rental Record for " + customerName + "\n";
 	}
 
 }
