@@ -44,13 +44,17 @@ public class Customer {
 			// add frequent renter points
 			frequentRenterPoints += each.getFrequentRenterPoints();
 			// show figures for this rental
-			result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
+			result += statementLine(thisAmount, each);
 			totalAmount += thisAmount;
 		}
 		// add footer lines
 		result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
 		result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
 		return result;
+	}
+
+	private String statementLine(double thisAmount, Rental each) {
+		return "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
 	}
 
 }
