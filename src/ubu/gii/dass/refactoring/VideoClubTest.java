@@ -41,14 +41,19 @@ public class VideoClubTest extends TestCase {
 		c1.addRental(r2);
 		c1.addRental(r3);
 
-		String salida = c1.statement(new StatementPrinterPlain());
+		IStatementPrinter printer;
 
-		String salidaEsperada = new String(
-				"Rental Record for Manuel\n" + "\tSky Captain\t15.0\n" + "\tAccion Mutante\t2.0\n"
-						+ "\tHermano Oso\t12.0\n" + "Amount owed is 29.0\n" + "You earned 4 frequent renter points");
+		printer = new StatementPrinterPlain();
+		_testAlquilerOutput(printer,
+				new String("Rental Record for Manuel\n" + "\tSky Captain\t15.0\n" + "\tAccion Mutante\t2.0\n"
+						+ "\tHermano Oso\t12.0\n" + "Amount owed is 29.0\n" + "You earned 4 frequent renter points"));
+
+	}
+
+	private void _testAlquilerOutput(IStatementPrinter printer, String salidaEsperada) {
+		String salida = c1.statement(printer);
 
 		assertTrue("Calcula mal el alquiler", salidaEsperada.equals(salida));
-
 	}
 
 	public static void main(String[] args) {
