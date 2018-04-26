@@ -49,8 +49,12 @@ public class Customer {
 		}
 		// add footer lines
 		result += printer.statementAmountTotal(totalAmount);
-		result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
+		result += statementPointsTotal(frequentRenterPoints);
 		return result;
+	}
+
+	private String statementPointsTotal(int totalFrequentRenterPoints) {
+		return "You earned " + String.valueOf(totalFrequentRenterPoints) + " frequent renter points";
 	}
 
 }
