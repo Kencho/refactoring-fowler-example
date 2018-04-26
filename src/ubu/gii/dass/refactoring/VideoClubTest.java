@@ -1,4 +1,5 @@
 package ubu.gii.dass.refactoring;
+
 import junit.framework.*;
 
 /**
@@ -9,7 +10,7 @@ import junit.framework.*;
  * 
  * @author M. Fowler y <A HREF="mailto:clopezno@ubu.es">Carlos López</A>
  * @version 1.1
-
+ * 
  * 
  */
 public class VideoClubTest extends TestCase {
@@ -24,7 +25,6 @@ public class VideoClubTest extends TestCase {
 
 		c1 = new Customer("Manuel");
 	}
-
 
 	public static Test suite() {
 
@@ -43,22 +43,11 @@ public class VideoClubTest extends TestCase {
 
 		String salida = c1.statement();
 
-		String salidaEsperada = new String("Rental Record for Manuel\n"
-				+ "\tSky Captain\t15.0\n" + "\tAccion Mutante\t2.0\n"
-				+ "\tHermano Oso\t12.0\n" + "Amount owed is 29.0\n"
-				+ "You earned 4 frequent renter points");
+		String salidaEsperada = new String(
+				"Rental Record for Manuel\n" + "\tSky Captain\t15.0\n" + "\tAccion Mutante\t2.0\n"
+						+ "\tHermano Oso\t12.0\n" + "Amount owed is 29.0\n" + "You earned 4 frequent renter points");
 
 		assertTrue("Calcula mal el alquiler", salidaEsperada.equals(salida));
-
-
-		String salidaHtml = c1.statementHtml();
-
-		String salidaEsperadaHtml = new String("<h1>Rental Record for Manuel</h1>"
-				+ "<h2>Sky Captain 15.0</h2>" + "<h2>Accion Mutante 2.0</h2>"
-				+ "<h2>Hermano Oso 12.0</h2>" + "<p>Amount owed is 29.0</p>"
-				+ "<p>You earned 4 frequent renter points</p>");
-
-		assertTrue("Calcula mal el alquiler", salidaEsperadaHtml.equals(salidaHtml));
 
 	}
 
