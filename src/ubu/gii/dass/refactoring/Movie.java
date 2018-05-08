@@ -14,7 +14,6 @@ package ubu.gii.dass.refactoring;
 
 public class Movie {
 	private String _title;
-	private int _oldPriceCode;
 	private MovieType _type;
 
 	public Movie(String title, int priceCode) {
@@ -28,7 +27,6 @@ public class Movie {
 
 	public void setPriceCode(int priceCode) {
 		_type = createMovieType(priceCode);
-		_oldPriceCode = priceCode;
 	}
 
 	public String getTitle() {
