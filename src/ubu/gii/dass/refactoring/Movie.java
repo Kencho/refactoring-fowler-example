@@ -13,7 +13,8 @@ package ubu.gii.dass.refactoring;
 
 public class Movie {
 	private String _title;
-	private int _priceCode;
+	private int _oldPriceCode;
+	private MovieType _type;
 
 	public Movie(String title, int priceCode) {
 		_title = title;
@@ -21,11 +22,11 @@ public class Movie {
 	}
 
 	public int getPriceCode() {
-		return _priceCode;
+		return _oldPriceCode;
 	}
 
 	public void setPriceCode(int arg) {
-		_priceCode = arg;
+		_oldPriceCode = arg;
 	}
 
 	public String getTitle() {
