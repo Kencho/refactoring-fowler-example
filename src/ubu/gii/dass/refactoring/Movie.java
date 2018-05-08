@@ -26,23 +26,10 @@ public class Movie {
 	}
 
 	public void setPriceCode(int priceCode) {
-		_type = createMovieType(priceCode);
+		_type = MovieType.createMovieType(priceCode);
 	}
 
 	public String getTitle() {
 		return _title;
-	}
-	
-	private static MovieType createMovieType(int priceCode) {
-		switch (priceCode) {
-		case MovieType.REGULAR:
-			return new RegularMovie();
-		case MovieType.NEW_RELEASE:
-			return new NewReleaseMovie();
-		case MovieType.CHILDRENS:
-			return new ChildrensMovie();
-		default:
-			throw new RuntimeException("Wrong type");
-		}
 	}
 }
