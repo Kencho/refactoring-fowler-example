@@ -22,14 +22,22 @@ public class Movie {
 	}
 
 	public int getPriceCode() {
-		return _type.getPriceCode();
+		return getType().getPriceCode();
 	}
 
 	public void setPriceCode(int priceCode) {
-		_type = MovieType.createMovieType(priceCode);
+		setType(MovieType.createMovieType(priceCode));
 	}
 
 	public String getTitle() {
 		return _title;
+	}
+
+	MovieType getType() {
+		return _type;
+	}
+
+	void setType(MovieType type) {
+		this._type = type;
 	}
 }

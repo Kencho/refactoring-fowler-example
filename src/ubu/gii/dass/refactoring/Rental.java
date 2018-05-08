@@ -29,21 +29,13 @@ public class Rental {
 
 	double getAmount() {
 		double result = 0;
-		switch (getMovie().getPriceCode()) {
-		case MovieType.REGULAR:
-			result += 2;
-			if (getDaysRented() > 2)
-				result += (getDaysRented() - 2) * 1.5;
-			break;
-		case MovieType.NEW_RELEASE:
-			result += getDaysRented() * 3;
-			break;
-		case MovieType.CHILDRENS:
-			result += 1.5;
-			if (getDaysRented() > 3)
-				result += (getDaysRented() - 3) * 1.5;
-			break;
-		}
+		MovieType movieType = _movie.getType();
+		double initialAmount = movieType.getInitialAmount();
+		double numFreeDays = movieType.getNumFreeDays();
+		double priceRate = movieType.getPriceRate();
+		result = initialAmount;
+		if (getDaysRented() > numFreeDays)
+			result += (getDaysRented() - numFreeDays) * priceRate;
 		return result;
 	}
 
