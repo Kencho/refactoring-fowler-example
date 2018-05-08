@@ -1,4 +1,5 @@
 package ubu.gii.dass.refactoring;
+
 /**
  * Tema Refactorizaciones
  * 
@@ -18,18 +19,32 @@ public class Movie {
 
 	public Movie(String title, int priceCode) {
 		_title = title;
-		setPriceCode (priceCode);
+		setPriceCode(priceCode);
 	}
 
 	public int getPriceCode() {
-		return _oldPriceCode;
+		return _type.getPriceCode();
 	}
 
-	public void setPriceCode(int arg) {
-		_oldPriceCode = arg;
+	public void setPriceCode(int priceCode) {
+		_type = createMovieType(priceCode);
+		_oldPriceCode = priceCode;
 	}
 
 	public String getTitle() {
 		return _title;
+	}
+	
+	private static MovieType createMovieType(int priceCode) {
+		switch (priceCode) {
+		case MovieType.REGULAR:
+			return new RegularMovie();
+		case MovieType.NEW_RELEASE:
+			return new NewReleaseMovie();
+		case MovieType.CHILDRENS:
+			return new ChildrensMovie();
+		default:
+			throw new RuntimeException("Wrong type");
+		}
 	}
 }
